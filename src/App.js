@@ -1,10 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
-import ExpenseItem from "./components/ExpenseItem";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
-  return <Expenses />;
+  return (
+    <div>
+      <NewExpense />
+      <Expenses />;
+    </div>
+  );
 }
 
 export default App;
