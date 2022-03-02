@@ -3,6 +3,8 @@ import "./Expenses.css";
 import React, { useState } from "react";
 import Card from "../UI/Card";
 import ExpenseLists from "./ExpenseLists";
+import Chart from "../Chart/Chart";
+import ExpenseChart from "./ExpenseChart";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("");
@@ -15,14 +17,23 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  return (
-    <Card className="expenses">
-      <div>
-        <ExpensesFilter selected={filteredYear} onSelect={selectHandler} />
-      </div>
+  // const chartData = filteredExpenses.map((expense) => ({
+  //   value: expense.amount,
+  //   id: Math.random().toString(),
+  //   label: expense.value,
+  // }));
 
-      <ExpenseLists items={filteredExpenses} />
-    </Card>
+  return (
+    <div>
+      {/* <Chart dataPoints={chartData} /> */}
+      <Card className="expenses">
+        <div>
+          <ExpensesFilter selected={filteredYear} onSelect={selectHandler} />
+        </div>
+        <ExpenseChart expenses={filteredExpenses} />
+        <ExpenseLists items={filteredExpenses} />
+      </Card>
+    </div>
   );
 };
 
