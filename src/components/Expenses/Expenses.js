@@ -23,6 +23,7 @@ const Expenses = (props) => {
   //   label: expense.value,
   // }));
 
+  console.log(filteredExpenses);
   return (
     <div>
       {/* <Chart dataPoints={chartData} /> */}

@@ -5,8 +5,12 @@ import React from "react";
 
 const Chart = (props) => {
   const dataPointsValues = props.dataPoints.map((dataPoint) => dataPoint.value);
-  const totalMaximum = Math.max(...dataPointsValues);
+  let totalMaximum = 0;
+  for (let i of dataPointsValues) {
+    totalMaximum += i;
+  }
 
+  // console.log(props.dataPoints);
   return (
     <div className="chart">
       {props.dataPoints.map((data) => (
